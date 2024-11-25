@@ -14,31 +14,29 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+  
     try {
       // Prepare the data to be sent in the request body
       const data = { email, password };
-      
+  
       // Send the login request
       const response = await fetch(`${baseUrl}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-
+  
       // Handle response
       if (response.ok) {
         const result = await response.json();
         alert("Login successful!");
-
+  
         // Optionally store the token in cookies or local storage if needed
         document.cookie = `token=${result.token}; path=/;`;
-        
-        // Navigate to the welcome page
-        history.push("/welcome",{name});
-        //setUserName(result.name); //set global context for result.name
+  
+        // Pass the name to the welcome page
+        history.push("/welcome", { name: result.name });  // Pass the 'name' in the route state
       } else {
-       
         alert("Wrong Details or Signup first!");
       }
     } catch (error) {
@@ -46,6 +44,7 @@ export default function Login() {
       alert("An error occurred. Please try again later.");
     }
   };
+  
 
   return (
     <div className="container mx-auto px-4 h-full">
