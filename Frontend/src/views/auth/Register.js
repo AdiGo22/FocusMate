@@ -10,36 +10,41 @@ export default function Register() {
   const[email,setEmail] = useState("");
   const[password,setPassword] = useState("");
   
-  const baseUrl = "https://localhost:3001";
+  const baseUrl = "https://localhost:3000";
   const handleSignin = async(e) => {
     e.preventDefault();
 
-    try{
-      //accept the data from the user
-      const data = {name,email,password};
-
-      //send request
-      const response = await fetch(`${baseUrl}/auth/register`,{
-        method:"POST",
-        headers: {"Content-Type":"application/json"},
+    try {
+      // Prepare the login data
+      const data = { email, password };
+    
+      // Send the login request
+      const response = await fetch(`${baseUrl}/auth/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-
-      //handle the response received
-      if(response.ok){
+    
+      if (response.ok) {
+        // Assuming the response is JSON with user details (like name, token, etc.)
         const result = await response.json();
-        alert("User Reegistered");
-        //navigate to the welcompe page but saving the data in the db
-        history.push("/"); //navigated after sucessfull sign in
+    
+        // Alert success
+        alert("Login successful");
+    
+        // Set token in cookies if needed
+        document.cookie = `token=${result.token}; path=/`;
+    
+        // Redirect to the welcome page with name in state
+        history.push("/welcome", { name: result.name });
+      } else {
+        alert("Invalid email or password!");
       }
-      else{
-        alert("Something went wrong!");
-      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred. Please try again later.");
     }
-    catch(error) {
-      alert("An errror has occured, come back later!");
-    }
-  };
+  }    
 
   return (
     <>
@@ -165,8 +170,7 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
-  const baseUrl = "http://localhost:3000"; // Adjust the base URL as needed
-
+  const baseUrl = "http://localhost:4000"; // Adjust the base URL as needed
   const handleSignup = async (e) => {
     e.preventDefault();
 
@@ -183,22 +187,15 @@ export default function Signup() {
     
       // Handle response
       if (response.ok) {
-        // Use `response.text()` if the server returns a plain text message
-        const result = await response.text();
+        // Assuming the server responds with plain text, use response.text()
+        await response.text();
         alert("Signup successful");
     
-        // Optionally, if your server is supposed to return a token,
-        // you may need to check if a token is included in a JSON response
-        // or adjust the server's response to return JSON if possible.
+        // Set a cookie or token if needed
+        document.cookie = `token=sampleToken; path=/`;
     
-        // If you expect JSON, you could convert it back to JSON here if needed
-        // but for a simple message, `result` will hold "User registered!" text.
-        // You can parse it back to JSON if you need structured data later.
-    
-        // Handle cookies or other logic as needed
-        document.cookie = `token=sampleToken; path=/`;  // Adjust based on actual token
-        history.push("/welcome",{name});
-    
+        // Redirect to the welcome page and pass the name in state
+        history.push("/Welcome", { name });
       } else {
         alert("User exists or wrong credentials!");
       }
@@ -208,8 +205,7 @@ export default function Signup() {
       alert("An error occurred. Please try again later.");
     }
     
-  };
-
+  }
   return (
     <div className="container mx-auto px-4 h-full">
       <div className="flex content-center items-center justify-center h-full">
