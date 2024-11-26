@@ -1,6 +1,17 @@
+
 {
+  "name": "focusmate",
+  "version": "1.1.0",
+  "scripts": {
+    "start": "concurrently \"npm run start:frontend\"",
+    "build": "concurrently \"npm run build:frontend\"",
+    "build:frontend": "cd frontend && npm run build",
+    "start:frontend": "cd frontend && npm start"
+  },
   "devDependencies": {
     "concurrently": "^9.1.0"
-    
+  },
+  "dependencies": {
+    "react-scripts": "^5.0.1"
   }
 }
