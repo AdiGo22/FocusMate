@@ -135,13 +135,18 @@ export default function Login() {
   
       if (response.ok) {
         // Assuming the server returns a JSON response on success
-        const result = await response.json();
-        console.log("Login successful:", result);
+        //const result = await response.json();
+        await response.text();
+        console.log("Login successful:");
         alert("Login successful!");
   
         // Store token and navigate to the welcome page
-        document.cookie = `token=${result.token}; path=/;`;
-        history.push("/Welcome", { name: result.name });
+        //document.cookie = `token=${result.token}; path=/;`;
+         
+         document.cookie = `token=sampleToken; path=/`;
+
+        //history.push("/Welcome", { name: result.name });
+        history.push("/Welcome",{name});
       } else {
         // Handle non-OK responses
         const contentType = response.headers.get("Content-Type");
