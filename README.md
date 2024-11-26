@@ -1,4 +1,4 @@
-## FocusMate 2.0 🎯
+## FocusMate 🎯
 A Productivity Web App Designed to Help Students Stay Focused , and avoid distractions. A one-stop dashboard for all students while studying on internet.
 
 ## 🚀 Features
