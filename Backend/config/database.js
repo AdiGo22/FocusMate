@@ -6,6 +6,7 @@ exports.connect = () => {
         useUnifiedTopology :true,
         useNewURlParser : true
     })
+    
     .then( ()=>{console.log("database connected")})
     .catch((e)=>{console.log("Error Occured while Connecting")
         console.error(e.message);
