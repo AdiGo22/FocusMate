@@ -5,10 +5,10 @@ A Productivity Web App Designed to Help Students Stay Focused , and avoid distra
 * Motivational Quotes:  Daily motivational quotes to keep you inspired.
 * FocusTools ---
 
-   FocusTasks: Todo List with Prioritization: Organize tasks by importance and urgency.
-   FocusType:  Improve typing speed and accuracy with real-time feedback.
-   FocusSites: Bookmark any URL, website, video on internet to easily access without getting distracted.
-  FocusTimer: Sit for timed study sessions to boost your focus.
+  . FocusTasks: Todo List with Prioritization: Organize tasks by importance and urgency.
+  . FocusType:  Improve typing speed and accuracy with real-time feedback.
+  . FocusSites: Bookmark any URL, website, video on internet to easily access without getting distracted.
+  . FocusTimer: Sit for timed study sessions to boost your focus.
   
 * Gamification with Rewards: Stay motivated by earning points and rewards as you complete tasks. (to be added soon!)
 * Authentication System: Secure login/signup using JWT token and cookies.
