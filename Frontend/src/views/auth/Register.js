@@ -170,7 +170,8 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
-  const baseUrl = "http://localhost:4000"; // Adjust the base URL as needed
+ // const baseUrl = "http://localhost:4000"; // Adjust the base URL as needed
+ const baseUrl = "https://focusmate-backend.onrender.com"; //render URL for backend (4/12)
   const handleSignup = async (e) => {
     e.preventDefault();
 

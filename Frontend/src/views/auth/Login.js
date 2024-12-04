@@ -118,7 +118,8 @@ export default function Login() {
   const [name, setName] = useState(""); // Added name handling
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const baseUrl = "http://localhost:4000"; // Ensure this matches your backend's base URL
+  //const baseUrl = "http://localhost:4000"; // Ensure this matches your backend's base URL
+  const baseUrl = "https://focusmate-backend.onrender.com"; //for deployment on render (4/12)
 
   const handleLogin = async (e) => {
     e.preventDefault();
