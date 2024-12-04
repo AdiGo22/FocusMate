@@ -66,16 +66,7 @@ export default function Index() {
               Together, we’ll tackle distractions and help you reach your goals <br/>
               Because why let distractions win when you can level up your focus?
               </p>
-              <div className="mt-12">
-                <a
-                  href="#tools-section"
-                  target=""
-                  className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-lightBlue-500 active:bg-lightBlue-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
-                >
-                  Get started
-                </a>
-                
-              </div>
+             
               <div>
                
                {/*<img 
